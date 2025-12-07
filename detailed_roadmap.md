@@ -1,97 +1,87 @@
-# twiMap Detailed Roadmap
+# twiMap Detailed Roadmap (v2)
 
-*Philosophy: **Data First.** We validate the hardest part (LLM Text Extraction) before building the "nice to have" frontend.*
+*Philosophy: **Data First & Quality Controlled.** We validate the hardest part (LLM Text Extraction) using a controlled vocabulary from the Wiki.*
 
 ---
 
-## Phase 1: The Raw Material
-**Goal:** Secure the dataset locally.
+## Phase 1: Foundation (Week 1)
+**Goal:** Secure the raw text and the "Canonical Truth" (Wiki data).
 
 ### 1.1 Chapter Scraper
 - [ ] **Script:** `scrape_chapters.py`
     - iterate through the Table of Contents.
-    - fetch HTML, strip ads/nav.
-    - **Output:** Flat folder structure: `data/raw/Vol_01/ch_1.00.txt`.
+    - **Output:** `data/raw/Vol_01/ch_1.00.txt`.
 
-### 1.2 Validation
-- [ ] Ensure all ~1200+ chapters are present.
-- [ ] Basic spot checks for encoding issues.
-
----
-
-## Phase 2: The Proof of Concept (LLM Pipeline)
-**Goal:** Prove we can turn text into useful data.
-
-### 2.1 The Pipeline
-- [ ] **Chunker:** Split 20k word chapters into 2k word "scenes".
-- [ ] **Prompt Engineering:**
-    - Develop the "X-Ray" prompt (Summary, Characters, Event Type).
-- [ ] **Prototype:**
-    - Run on **1 Chapter** (Manual review).
-    - Run on **10 Chapters** (Batch test).
-    - Run on **Volume 1** (Full stress test).
-
-### 2.2 Output
-- [ ] Validated JSON files for Volume 1: `data/processed/Vol_01/ch_1.00.json`.
-
----
-
-## Phase 3: The Context (Wiki Ingestion)
-**Goal:** Get the canonical truth to cross-reference with our LLM data.
-
-### 3.1 Wiki Scraper
+### 1.2 Wiki Scraper (The Context Layer)
 - [ ] **Script:** `scrape_wiki.py`
     - Target: Characters, Locations, Classes.
-    - **Output:** `data/wiki/characters.json` (Text only, no complex processing yet).
+    - **Output:** `data/wiki/characters.json` (List of known entities).
+- [ ] **Entity Normalization:**
+    - Create a "Canonical Lookup" to help the LLM fix typos ("Erin Solstace" -> "Erin Solstice").
 
 ---
 
-## Phase 4: The Schema
-**Goal:** Define how this data lives in a database.
+## Phase 2: The Proof of Concept (Weeks 2-3)
+**Goal:** Prove we can turn text into high-quality data.
 
-### 4.1 modeling
-- [ ] **ER Diagram:**
-    - `Chapter` (with raw text path).
-    - `Scene` (the atomic unit of the graph).
-    - `Character` (Canonical ID from Wiki).
-    - `Appearance` (Link between Character and Scene).
+### 2.1 The Pipeline
+- [ ] **Chunker:** Handle special formatting (POVs, long blocks).
+- [ ] **Prompt Engineering:**
+    - **Input:** 2k word chunk + List of known Characters (from Phase 1).
+    - **Output:** JSON with normalized names.
+
+### 2.2 Tooling (The Admin UI)
+*Crucial: We cannot review 12M words via JSON files.*
+- [ ] **Review Interface:**
+    - Simple local web page to show: Left (Raw Text) | Right (LLM Extract).
+    - [Approve] / [Edit] buttons.
+
+### 2.3 Validation
+- [ ] **Experiment:** Run on 1 complex chapter (e.g., 1.00).
+- [ ] **Volume 1 Batch:** Processing ~40-50 chapters.
+- [ ] **Quality Gate:**
+    - >95% Character Identification Accuracy.
+    - <5% Hallucinated Events.
 
 ---
 
-## Phase 5: The Infrastructure
-**Goal:** Move from JSON files to a real DB.
+## Phase 3: Minimal Data Layer (Week 4)
+**Goal:** Store the clean data in a queryable format.
 
-### 5.1 Deployment
-- [ ] **Database:** Setup PostgreSQL to host the schema.
-- [ ] **Ingestion Script:**
-    - Load Wiki Data (First).
-    - Load Processed LLM Data (Second, linking to Wiki IDs).
+### 3.1 Schema (v1)
+*Keep it simple.*
+- [ ] **Tables:** `chapters`, `scenes`, `characters`.
+- [ ] **Storage:** PostgreSQL.
+
+### 3.2 API
+- [ ] **Rest API:** Simple endpoints to fetch data for the frontend.
+    - `GET /chapters`
+    - `GET /search?q=...`
 
 ---
 
-## Phase 6: Minimal UI
+## Phase 4: Minimal UI (Weeks 5-6)
 **Goal:** A read-only interface to browse the data.
 
-### 6.1 Frontend
+### 4.1 Frontend
 - [ ] **Tech:** Next.js.
 - [ ] **Views:**
     - **Timeline:** List of scenes in order.
-    - **Search:** Simple text search over summaries.
+    - **Search:** Simple full-text search.
 
 ---
 
-## Phase 7: The Graph
-**Goal:** Visualizing connections.
-
-### 7.1 Graph Logic
-- [ ] **Edges:** `Character` -> `Scene` -> `Location`.
-- [ ] **UI:** Interactive network visualization using a library like `react-force-graph`.
-
----
-
-## Phase 8: Scale
+## Phase 5: Scale
 **Goal:** Process the rest of the 12M words.
 
-### 8.1 Batch Job
-- [ ] Run the Phase 2 pipeline on Volumes 2-10 (Likely overnight jobs).
+### 5.1 Batch Job
+- [ ] Run the verified pipeline on Volumes 2-10.
 - [ ] Ingest results into DB.
+
+---
+
+## Technical Stack Choices
+- **Language:** TypeScript / Python (for scripting).
+- **DB:** PostgreSQL.
+- **Search:** Postgres Full-Text (Start simple).
+- **LLM:** GPT-4o-mini (Cost efficient) + Caching.
