@@ -1,0 +1,293 @@
+[
+  {
+    "chunk_id": "2_0_0",
+    "chapter_order": 2,
+    "scene_index": 0,
+    "extraction": {
+      "characters": [
+        {
+          "name": "Erin Solstice",
+          "type": "known",
+          "confidence": 0.99,
+          "context": "The primary figure in the scene, referred to repeatedly as 'Erin'."
+        }
+      ],
+      "locations": [
+        {
+          "name": "The Wandering Inn"
+        }
+      ]
+    }
+  },
+  {
+    "chunk_id": "2_1_0",
+    "chapter_order": 2,
+    "scene_index": 1,
+    "extraction": {
+      "characters": [
+        {
+          "name": "Erin Solstice",
+          "type": "known",
+          "confidence": 1.0,
+          "context": "The central figure of the scene, referred to constantly as Erin or Erin Solstice."
+        },
+        {
+          "name": "Goblins",
+          "type": "new",
+          "confidence": 0.6,
+          "context": "Mentioned as an encountered entity ('It wasn’t the Goblins that convinced her.')"
+        },
+        {
+          "name": "Dragon",
+          "type": "new",
+          "confidence": 0.6,
+          "context": "Mentioned as an encountered entity ('Or even the Dragon.')"
+        }
+      ],
+      "locations": [
+        {
+          "name": "The Inn"
+        },
+        {
+          "name": "Chicago"
+        },
+        {
+          "name": "America"
+        }
+      ]
+    }
+  },
+  {
+    "chunk_id": "2_2_0",
+    "chapter_order": 2,
+    "scene_index": 2,
+    "extraction": {
+      "characters": [
+        {
+          "name": "Erin Solstice",
+          "type": "known",
+          "confidence": 0.99,
+          "context": "Main perspective character, referred to frequently as Erin."
+        },
+        {
+          "name": "Goblins",
+          "type": "known",
+          "confidence": 0.95,
+          "context": "Mentioned as having been encountered previously."
+        },
+        {
+          "name": "Dragon",
+          "type": "known",
+          "confidence": 0.9,
+          "context": "Mentioned as the entity Erin fled from before encountering the Goblins."
+        }
+      ],
+      "locations": [
+        {
+          "name": "The Inn"
+        },
+        {
+          "name": "Grasslands / Plains"
+        },
+        {
+          "name": "Mountain Range"
+        }
+      ]
+    }
+  },
+  {
+    "chunk_id": "2_3_0",
+    "chapter_order": 2,
+    "scene_index": 3,
+    "extraction": {
+      "characters": [
+        {
+          "name": "Dragon",
+          "type": "new",
+          "confidence": 1.0,
+          "context": "The main character and narrator viewpoint of the scene."
+        },
+        {
+          "name": "Young woman",
+          "type": "new",
+          "confidence": 1.0,
+          "context": "The mysterious intruder who appeared in the Dragon's lair."
+        },
+        {
+          "name": "Az’kerash",
+          "type": "known",
+          "confidence": 0.9,
+          "context": "Mentioned by the alias 'That Necromancer,' a known alias for Az’kerash."
+        },
+        {
+          "name": "Quarass",
+          "type": "known",
+          "confidence": 1.0,
+          "context": "Mentioned as a powerful potential foe."
+        }
+      ],
+      "locations": [
+        {
+          "name": "Academy"
+        }
+      ]
+    }
+  },
+  {
+    "chunk_id": "3_0_0",
+    "chapter_order": 3,
+    "scene_index": 0,
+    "extraction": {
+      "characters": [
+        {
+          "name": "Erin Solstice",
+          "type": "known",
+          "confidence": 1.0,
+          "context": "The primary actor and viewpoint character in the scene, handling the blue fruit."
+        }
+      ],
+      "locations": []
+    }
+  },
+  {
+    "chunk_id": "3_1_0",
+    "chapter_order": 3,
+    "scene_index": 1,
+    "extraction": {
+      "characters": [
+        {
+          "name": "Erin",
+          "type": "known",
+          "confidence": 1.0,
+          "context": "The main character, acting and speaking throughout the snippet."
+        }
+      ],
+      "locations": []
+    }
+  },
+  {
+    "chunk_id": "3_2_0",
+    "chapter_order": 3,
+    "scene_index": 2,
+    "extraction": {
+      "characters": [
+        {
+          "name": "Erin Solstice",
+          "type": "known",
+          "confidence": 0.99,
+          "context": "Primary viewpoint character (referred to as Erin, she, human, young woman)"
+        },
+        {
+          "name": "Rock Crab",
+          "type": "new",
+          "confidence": 0.95,
+          "context": "Antagonistic crab-creature hiding as a rock"
+        },
+        {
+          "name": "Goblins",
+          "type": "known",
+          "confidence": 0.95,
+          "context": "Group of short, green creatures encountered in the orchard"
+        }
+      ],
+      "locations": [
+        {
+          "name": "Grasslands"
+        },
+        {
+          "name": "Fruit Orchard"
+        }
+      ]
+    }
+  },
+  {
+    "chunk_id": "3_3_0",
+    "chapter_order": 3,
+    "scene_index": 3,
+    "extraction": {
+      "characters": [
+        {
+          "name": "Erin Solstice",
+          "type": "known",
+          "confidence": 1.0,
+          "context": "The central figure of the scene, explicitly named and described."
+        }
+      ],
+      "locations": [
+        {
+          "name": "plains"
+        },
+        {
+          "name": "grasslands"
+        },
+        {
+          "name": "Grand Rapids, Michigan"
+        }
+      ]
+    }
+  },
+  {
+    "chunk_id": "1_0_0",
+    "chapter_order": 1,
+    "scene_index": 0,
+    "extraction": {
+      "characters": [
+        {
+          "name": "Erin Solstice",
+          "type": "known",
+          "confidence": 1.0,
+          "context": "Protagonist"
+        },
+        {
+          "name": "Dragon",
+          "type": "new",
+          "confidence": 0.9,
+          "context": "Antagonist in cave"
+        },
+        {
+          "name": "Goblins",
+          "type": "known",
+          "confidence": 0.8,
+          "context": "Attackers"
+        }
+      ],
+      "locations": [
+        {
+          "name": "The Wandering Inn"
+        }
+      ]
+    }
+  },
+  {
+    "chunk_id": "1_0_1",
+    "chapter_order": 1,
+    "scene_index": 0,
+    "extraction": {
+      "characters": [
+        {
+          "name": "Erin Solstice",
+          "type": "known",
+          "confidence": 1.0,
+          "context": "Protagonist"
+        },
+        {
+          "name": "Dragon",
+          "type": "new",
+          "confidence": 0.9,
+          "context": "Antagonist in cave"
+        },
+        {
+          "name": "Goblins",
+          "type": "known",
+          "confidence": 0.8,
+          "context": "Attackers"
+        }
+      ],
+      "locations": [
+        {
+          "name": "The Wandering Inn"
+        }
+      ]
+    }
+  }
+]

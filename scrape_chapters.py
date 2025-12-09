@@ -81,9 +81,9 @@ def main():
     for book in book_wrappers:
         book_num = book.get("data-book-number", "Unknown")
         
-        # User requested extraction of Volume 1 only for now
-        if book_num != "1":
-            continue
+        # User requested extraction of ALL volumes
+        # if book_num != "1":
+        #    continue
 
         vol_name = f"Vol_{book_num.zfill(2)}"
         
